@@ -31,13 +31,16 @@ class TruyenController extends Controller
     public function index(){
         if(Auth::check()){
             $role = Auth::user()->role;
-            if($role=='1' || $role=='2'){
+        if($role=='1'){
             $truyen = Truyen::orderBy('id','DESC')->paginate(10);
             return view('BackEnd.Truyen.index',compact('truyen'));
-            }else{
-                return redirect(route('trang-chu'));
-        }
-        return redirect(route('trang-chu'));
+        }elseif($role=='2'){
+            $truyen = Truyen::with('user')->where('user_id', Auth::user()->id)->orderBy('id','DESC')->paginate(10);
+                return view('BackEnd.Truyen.index',compact('truyen'));
+                
+        }else{
+            return redirect(route('trang-chu'));
+            }
         }
     }
     public function create(){
@@ -82,6 +85,7 @@ class TruyenController extends Controller
             
         }
         $truyen->category_truyen()->detach();
+        $truyen->chapter()->delete();
         $truyen->destroy($id);
         $truyen->save();
         return redirect()->back()->with('success','xoá thành công');

@@ -1,86 +1,114 @@
-<nav class="navbar navbar-expand-lg " color-on-scroll="500">
-  <div class="container-fluid">
-      <a class="navbar-brand" href="{{ route('trang-chu') }}">
-            <svg xmlns="http://www.w3.org/2000/svg" 
-            width="50" height="50" 
-            viewBox="45.002 196.466 482.556 209.281">
-            <path fill="#EC2854" stroke="#EC2854" stroke-miterlimit="10" 
-            d="M217.198 232.5c-16.597 6.907-52.729 34.028-36.249 58.467 7.288 
-            10.807 19.94 18.442 31.471 22.057 10.732 3.363 23.897-.761 33.709 
-            3.721-2.09 5.103-9.479 23.689-15.812 22.319-11.827-2.544-23.787-.445-33.07 
-            8.485-18.958-26.295-45.97-36.974-75.739-29.676 22.066-27.2 16.719-55.687-6.468-81.622-13.999-15.657-47.993-37.963-69.845-28.853 54.591-22.738 121.119-5.555 172.003 25.102-8.815 3.669-3.617-2.179 0 0zm138.167 0c16.595 
-            6.908 52.729 34.028 36.249 58.467-7.288 10.807-19.939 18.443-31.473 22.059-10.731 
-            3.365-23.896-.762-33.712 3.721 2.104 5.112 9.464 23.671 15.812 22.318 11.826-2.542 
-            23.789-.448 33.068 8.484 18.959-26.294 45.974-36.975 75.738-29.676-22.056-27.206-16.726-55.682 
-            6.471-81.622 13.997-15.654 47.995-37.967 69.847-28.854-54.586-22.733-121.116-5.562-172 25.103 8.817 
-            3.669 3.616-2.18 0 0z"/>
-            <path fill="none" d="M723.057 240.921H824.18v56.18H723.057z"/>
-            <path fill="#dark" d="M225.434 293.58h23.199v15.919c6.874-6.563 
-            14.154-11.274 21.841-14.137 7.687-2.863 16.234-4.295 25.64-4.295 
-            20.621 0 34.549 5.552 41.785 16.653 3.979 6.074 5.969 14.766 5.969 
-            26.077v71.95h-24.826v-70.693c0-6.842-1.312-12.358-3.935-16.547-4.344-6.982-12.209-10.473-23.604-10.473-5.789 
-            0-10.538.455-14.246 1.363-6.693 1.536-12.572 4.608-17.636 9.216-4.07 3.701-6.716 7.522-7.937 11.467-1.221 3.945-1.832 9.582-1.832 16.913v58.754h-24.419l.001-112.167z"/></svg>
-
-    </a>
-      <button href="" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-bar burger-lines"></span>
-          <span class="navbar-toggler-bar burger-lines"></span>
-          <span class="navbar-toggler-bar burger-lines"></span>
-      </button>
-      <div class="collapse navbar-collapse justify-content-end" id="navigation">
-          <ul class="nav navbar-nav mr-auto">
-              <li class="nav-item">
-                  <a href="#" class="nav-link" data-toggle="dropdown">
-                      <i class="nc-icon nc-palette"></i>
-                      <span class="d-lg-none">Dashboard</span>
-                  </a>
-              </li>
-              <li class="dropdown nav-item">
-                  <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                      <i class="nc-icon nc-planet"></i>
-                      <span class="notification">5</span>
-                      <span class="d-lg-none">Notification</span>
-                  </a>
-                  <ul class="dropdown-menu">
-                      <a class="dropdown-item" href="#">Notification 1</a>
-                      <a class="dropdown-item" href="#">Notification 2</a>
-                      <a class="dropdown-item" href="#">Notification 3</a>
-                      <a class="dropdown-item" href="#">Notification 4</a>
-                      <a class="dropdown-item" href="#">Another notification</a>
-                  </ul>
-              </li>
-              <li class="nav-item">
-                  <a href="#" class="nav-link">
-                      <i class="nc-icon nc-zoom-split"></i>
-                      <span class="d-lg-block">&nbsp;Search</span>
-                  </a>
-              </li>
-          </ul>
-          <ul class="navbar-nav ml-auto">
-              <li class="nav-item">
-                  <a class="nav-link" href="#pablo">
-                      <span class="no-icon">{{Auth::user()->username}}</span>
-                  </a>
-              </li>
-              <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <span class="no-icon">Dropdown</span>
-                  </a>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                      <a class="dropdown-item" href="#">Action</a>
-                      <a class="dropdown-item" href="#">Another action</a>
-                      <a class="dropdown-item" href="#">Something</a>
-                      <a class="dropdown-item" href="#">Something else here</a>
-                      <div class="divider"></div>
-                      <a class="dropdown-item" href="#">Separated link</a>
+<nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" data-scroll="true">
+    <div class="container-fluid py-1 px-3">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+          <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a></li>
+          <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Dashboard</li>
+        </ol>
+        <h6 class="font-weight-bolder mb-0">Dashboard</h6>
+      </nav>
+      <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
+        <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+          <div class="input-group input-group-outline">
+            <label class="form-label">Type here...</label>
+            <input type="text" class="form-control">
+          </div>
+        </div>
+        <ul class="navbar-nav  justify-content-end">
+          <li class="nav-item d-flex align-items-center">
+            <a href="../pages/sign-in.html" class="nav-link text-body font-weight-bold px-0">
+              <i class="fa fa-user me-sm-1"></i>
+              <span class="d-sm-inline d-none">Sign In</span>
+            </a>
+          </li>
+          <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
+            <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
+              <div class="sidenav-toggler-inner">
+                <i class="sidenav-toggler-line"></i>
+                <i class="sidenav-toggler-line"></i>
+                <i class="sidenav-toggler-line"></i>
+              </div>
+            </a>
+          </li>
+          <li class="nav-item px-3 d-flex align-items-center">
+            <a href="javascript:;" class="nav-link text-body p-0">
+              <i class="fa fa-cog fixed-plugin-button-nav cursor-pointer"></i>
+            </a>
+          </li>
+          <li class="nav-item dropdown pe-2 d-flex align-items-center">
+            <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="fa fa-bell cursor-pointer"></i>
+            </a>
+            <ul class="dropdown-menu  dropdown-menu-end  px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton">
+              <li class="mb-2">
+                <a class="dropdown-item border-radius-md" href="javascript:;">
+                  <div class="d-flex py-1">
+                    <div class="my-auto">
+                      <img src="../assets/img/team-2.jpg" class="avatar avatar-sm  me-3 ">
+                    </div>
+                    <div class="d-flex flex-column justify-content-center">
+                      <h6 class="text-sm font-weight-normal mb-1">
+                        <span class="font-weight-bold">New message</span> from Laur
+                      </h6>
+                      <p class="text-xs text-secondary mb-0">
+                        <i class="fa fa-clock me-1"></i>
+                        13 minutes ago
+                      </p>
+                    </div>
                   </div>
+                </a>
               </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="{{ route('dang-xuat') }}"  {{ request()->route()->getName() == 'dang-xuat'? 'active': '' }}>
-                      <span class="no-icon">Log out</span>
-                  </a>
+              <li class="mb-2">
+                <a class="dropdown-item border-radius-md" href="javascript:;">
+                  <div class="d-flex py-1">
+                    <div class="my-auto">
+                      <img src="../assets/img/small-logos/logo-spotify.svg" class="avatar avatar-sm bg-gradient-dark  me-3 ">
+                    </div>
+                    <div class="d-flex flex-column justify-content-center">
+                      <h6 class="text-sm font-weight-normal mb-1">
+                        <span class="font-weight-bold">New album</span> by Travis Scott
+                      </h6>
+                      <p class="text-xs text-secondary mb-0">
+                        <i class="fa fa-clock me-1"></i>
+                        1 day
+                      </p>
+                    </div>
+                  </div>
+                </a>
               </li>
-          </ul>
+              <li>
+                <a class="dropdown-item border-radius-md" href="javascript:;">
+                  <div class="d-flex py-1">
+                    <div class="avatar avatar-sm bg-gradient-secondary  me-3  my-auto">
+                      <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <title>credit-card</title>
+                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                          <g transform="translate(-2169.000000, -745.000000)" fill="#FFFFFF" fill-rule="nonzero">
+                            <g transform="translate(1716.000000, 291.000000)">
+                              <g transform="translate(453.000000, 454.000000)">
+                                <path class="color-background" d="M43,10.7482083 L43,3.58333333 C43,1.60354167 41.3964583,0 39.4166667,0 L3.58333333,0 C1.60354167,0 0,1.60354167 0,3.58333333 L0,10.7482083 L43,10.7482083 Z" opacity="0.593633743"></path>
+                                <path class="color-background" d="M0,16.125 L0,32.25 C0,34.2297917 1.60354167,35.8333333 3.58333333,35.8333333 L39.4166667,35.8333333 C41.3964583,35.8333333 43,34.2297917 43,32.25 L43,16.125 L0,16.125 Z M19.7083333,26.875 L7.16666667,26.875 L7.16666667,23.2916667 L19.7083333,23.2916667 L19.7083333,26.875 Z M35.8333333,26.875 L28.6666667,26.875 L28.6666667,23.2916667 L35.8333333,23.2916667 L35.8333333,26.875 Z"></path>
+                              </g>
+                            </g>
+                          </g>
+                        </g>
+                      </svg>
+                    </div>
+                    <div class="d-flex flex-column justify-content-center">
+                      <h6 class="text-sm font-weight-normal mb-1">
+                        Payment successfully completed
+                      </h6>
+                      <p class="text-xs text-secondary mb-0">
+                        <i class="fa fa-clock me-1"></i>
+                        2 days
+                      </p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
       </div>
-  </div>
-</nav>
+    </div>
+  </nav>

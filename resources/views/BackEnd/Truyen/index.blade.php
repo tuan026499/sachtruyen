@@ -19,7 +19,7 @@
             {{Session::get('failed')}}
         </div>
     @endif
-          <table id="example2" class="table table-bordered table-hover" style="margin: auto">
+          <table id="example2" class="table table-hover" style="margin: auto">
               <thead>
                   <tr>
                       <th class="text-center">STT</th>
@@ -27,8 +27,6 @@
                       <th class="text-center">Tác giả</th>
                       <th class="text-center">Ảnh đại diện</th>
                       <th class="text-center">Trạng thái</th>
-
-
                       <th class="text-center">Tình trạng</th>
                       <th style="width: 9rem" class="text-center" style="margin: auto">Acction</th>
 

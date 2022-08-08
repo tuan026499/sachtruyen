@@ -1,8 +1,9 @@
 @extends('BackEnd.index')
 @section('content')
 <div class="col-12">
+    <a href="{{ route('truyen.create') }}" class="btn btn-primary">Thêm mới</a>
   <div class="card">
-      <a href="{{ route('truyen.create') }}" class="btn btn">Thêm mới</a>
+      
       <div class="card-header">
           <h3 class="card-title">Truyện</h3>
       </div>
@@ -19,27 +20,29 @@
             {{Session::get('failed')}}
         </div>
     @endif
-          <table id="example2" class="table table-hover" style="margin: auto">
+          <table id="example2" class="table table-hover " style="margin: auto">
               <thead>
                   <tr>
-                      <th class="text-center">STT</th>
-                      <th class="text-center">Tiêu đề </th>
-                      <th class="text-center">Tác giả</th>
-                      <th class="text-center">Ảnh đại diện</th>
-                      <th class="text-center">Trạng thái</th>
-                      <th class="text-center">Tình trạng</th>
-                      <th style="width: 9rem" class="text-center" style="margin: auto">Acction</th>
+                      <th class="text-uppercase text-secondary fs-6 font-weight-bolder opacity-7 text-center">STT</th>
+                      <th class="text-uppercase text-secondary fs-6 font-weight-bolder opacity-7 text-center">Tiêu đề </th>
+                      <th class="text-uppercase text-secondary fs-6 font-weight-bolder opacity-7 text-center">Tác giả</th>
+                      <th class="text-uppercase text-secondary fs-6 font-weight-bolder opacity-7 text-center">Ảnh đại diện</th>
+                      <th class="text-uppercase text-secondary fs-6 font-weight-bolder opacity-7 text-center">Trạng thái</th>
+                      <th class="text-uppercase text-secondary fs-6 font-weight-bolder opacity-7 text-center">Tình trạng</th>
+                      <th >Acction</th>
 
                   </tr>
               </thead>
               <tbody>
+                <div class="d-flex flex-column justify-content-center">
                   @foreach ($truyen as $item)
                       <tr>
-                          <td>{{ $loop->iteration }}</td>
-                          <td>{{ Str::limit($item->tieu_de, 20) }}</td>
-                          <td>{{ $item->tac_gia }}</td>
-                          <td><img src="{{ asset('storage/' . $item->image) }}" style="width: 70px;"></td>
-                          <td>
+                        
+                          <td class="text-center">{{ $loop->iteration }}</td>
+                          <td class="">{{ Str::limit($item->tieu_de, 20) }}</td>
+                          <td class="text-center">{{ $item->tac_gia }}</td>
+                          <td class="text-center"><img src="{{ asset('storage/' . $item->image) }}" style="width: 70px;"></td>
+                          <td class="text-center">
                               @if ($item->trang_thai == 0)
                                   <span class="text text-danger">Ẩn</span>
                               @else
@@ -48,7 +51,7 @@
                           </td>
 
 
-                          <td>
+                          <td class="text-center">
                               @if ($item->tinh_trang == 0)
                                   <span class="text text-danger">Tạm Ngưng</span>
                               @elseif($item->tinh_trang==1)
@@ -57,7 +60,7 @@
                                   <span class="text text-success">Hoàn Thành</span>
                               @endif
                           </td>
-                          <td>
+                          <td class="text-center">
                               {{-- SỬA TRUYỆN --}}
                               <a href="{{ route('truyen.edit', [$item->id]) }}">
                                   <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
@@ -84,10 +87,10 @@
                               </a>
 
                           </td>
-
+                        
                       </tr>
                   @endforeach
-
+                </div>
               </tbody>
 
           </table>

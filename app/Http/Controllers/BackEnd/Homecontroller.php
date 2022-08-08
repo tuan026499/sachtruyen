@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Danhmuc;
 use App\Models\Role;
 use App\Models\Theloai;
+use App\Models\Truyen;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -18,8 +19,9 @@ class Homecontroller extends Controller
             $danhmuc  = Danhmuc::where('id','DESC')->get();
             $category = Category::where('id','DESC')->get();
             $role = Role::where('id','DESC')->get();
+            $truyen = Truyen::where('id','DESC')->get();
             // return view('BackEnd.index',['danhmuc'=>$danhmuc,'theloai'=>$theloai,'']);
-            return view('BackEnd.index',compact('danhmuc','theloai','category','role'));
+            return view('BackEnd.index',compact('danhmuc','theloai','category','role','truyen'));
         }else{
             return redirect(route('dang-nhap'))->with('failed','ban can dang nhap');
         }

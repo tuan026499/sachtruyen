@@ -6,6 +6,7 @@ use App\Http\Controllers\BackEnd\Homecontroller as BackEndHomecontroller;
 use App\Http\Controllers\BackEnd\RoleController;
 use App\Http\Controllers\BackEnd\TheloaiController;
 use App\Http\Controllers\BackEnd\TruyenController;
+use App\Http\Controllers\BackEnd\UserController;
 use App\Http\Controllers\BaclEnd\RoleController as BaclEndRoleController;
 use App\Http\Controllers\FrontEnd\ChangePasswordController;
 use App\Http\Controllers\FrontEnd\CommentController;
@@ -31,6 +32,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('trang-chu');
 Route::get('/truyen/{slug}', [HomeController::class, 'xemtruyen'])->name('xem-truyen');
 Route::Get('/truyen/{slug}/{slug_chapter}', [HomeController::class, 'doc_chapter'])->name('doc-chapter');
+Route::Get('/the-loai', [HomeController::class, 'show_cate'])->name('show_cate');
+Route::Get('/the-loai/{slug}', [HomeController::class, 'detail_cate'])->name('detail_cate');
 Route::get('/add-favorite/{truyen}',[FavoriteController::class,'store'])->name('store-favorite');
 Route::get('/unfollow/{truyen}',[FavoriteController::class,'remove'])->name('remove-favorite');
 Route::get('/truyen-theo-doi',[FavoriteController::class,'show_truyen_follow'])->name('show.follow_comic');
@@ -69,6 +72,13 @@ Route::group(['prefix' => '/admin'], function () {
     // Route::get('role/{id}',[RoleController::class,'delete'])->name('role.delete');
     // Route::get('/role/tao-moi-role',[RoleController::class,'create'])->name('role.create');
     // Route::post('/role/store',[RoleController::class,'store'])->name('role.store');
+    Route::controller(UserController::class)->group(function () {
+        Route::group(['prefix'=>'/user/'],function(){
+            Route::get('/', 'index')->name('user.index');
+            Route::get('/{username}', 'edit')->name('user.edit');
+            Route::post('/{username}', 'saveEdit');
+        });
+    });
     Route::controller(RoleController::class)->group(function () {
         Route::group(['prefix' =>'/role/'],function () {
             Route::get('/','index')->name('role.index');

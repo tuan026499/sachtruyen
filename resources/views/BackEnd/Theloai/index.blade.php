@@ -13,7 +13,7 @@
         </div>
   
         @endif
-<table class="table">
+<table class="table text-center">
   <thead>
     <tr>
       <th scope="col">STT</th>
@@ -24,12 +24,12 @@
       <th scope="col">Action</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody class="text-center">
     @foreach ($theloai as $theloais)
     <tr>
       <td>{{$loop->iteration}}</td>
       <td>{{$theloais->ten_the_loai}}</td>
-      <td>{{$theloais->mo_ta}}</td>
+      <td>{{Str::limit($theloais->mo_ta,20)}}</td>
       <td>{{$theloais->slug_the_loai}}</td>
       <td>
         @if ($theloais->trang_thai==0)

@@ -24,7 +24,7 @@ class User extends Authenticatable
         'password',
         'full_name',
         'image',
-        'user_id'
+        'role'
     ];
     public function truyen(){
         return $this->hasMany(Truyen::class,'user_id','id');

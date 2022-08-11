@@ -9,6 +9,7 @@ use App\Models\Chapter;
 use App\Models\Danhmuc;
 use App\Models\Theloai;
 use App\Models\Truyen;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -16,15 +17,19 @@ class HomeController extends Controller
 {
     private $truyen;
     private $chapter;
+    private $danhmuc;
+    private $theloai;
     private $category;
     private $categoryTruyen;
     private $favorite;
-    public function __construct(Truyen $truyen, Chapter $chapter, Category $category, CategoryTruyen $categoryTruyen)
+    public function __construct(Truyen $truyen, Chapter $chapter, Category $category, CategoryTruyen $categoryTruyen,Danhmuc $danhmuc,Theloai $theloai)
     {
         $this->truyen = $truyen;
         $this->chapter = $chapter;
         $this->category = $category;
         $this->categoryTruyen = $categoryTruyen;
+        $this->theloai = $danhmuc;
+        $this->theloai = $theloai;
     }
     public function index()
     { 
@@ -65,5 +70,19 @@ class HomeController extends Controller
         
         return view('page.detail_chapter', compact('danhmuc','chapter','category','truyen','all_chapter',
         'previous_chapter','next_chapter','max_id','min_id','theloai','slug','slug_chapter','checkChapterId','categories','images'));
+    }
+    public function show_cate(){
+        $danhmuc = Danhmuc::all();
+        $categories = $this->category->all();
+        return view('page.detail_category',compact('categories','danhmuc'));
+    }
+    public function detail_cate($slug){
+        $danhmuc = Danhmuc::all();
+        $categories = $this->category->where('slug_cate',$slug)->get();
+        $truyen = $categories[0]->truyen;
+        $count=$truyen->count();
+        return view('page.cate_with_truyen',compact('categories','danhmuc','truyen','count'));
+
+
     }
 }

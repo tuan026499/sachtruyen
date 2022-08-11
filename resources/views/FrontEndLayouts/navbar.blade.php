@@ -43,23 +43,24 @@
                     <a class="nav-link text-light" href="#">{{ $item->ten_danh_muc }}</a>
                 </li>
             @endforeach
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button"
-                    data-bs-toggle="dropdown" aria-expanded="false">
+            <li class="nav-item">
+                <a class="nav-link text-light" href="{{ route('show_cate') }}" role="button">
                     Thể Loại
                 </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="width:500px;">
+            </li>
+
+                {{-- <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="width:500px;">
                   @foreach ($categories as $category)
                         <li>
                           <div class="row"  style="float: left;width:150px">
                             <div class="col-sm-3" style="padding:10px;margin-left:20px;"">
-                              <a href=""style="float:left;width:100px">{{$category->cate_name}}</a></div>
+                              <a href="{{ route('show_cate', ['slug'=>$category->slug_cate]) }}"style="float:left;width:100px">{{$category->cate_name}}</a></div>
                           </div>
                            
                         </li>
                         @endforeach
-                </ul>
-            </li>
+                </ul> --}}
+            {{-- </li> --}}
             {{-- <form class="form-inline my-2 my-lg-0" method="GET" action="{{route('tim-kiem')}}"">
         <input class="form-control mr-sm-2" type="search" placeholder="Search " id="keywords" name="tukhoa">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
@@ -85,12 +86,13 @@
                        {{ Auth::user()->username }}
                     </a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item text-dark" href="{{ route('profile') }}"
-                            {{ request()->route()->getName() == 'profile'? 'active': '' }}>Trang cá nhân</a>
-                            @if (Auth::user()->role=='1' || Auth::user()->role=='2')
+                        @if (Auth::user()->role=='1' || Auth::user()->role=='2')
                         <a class="dropdown-item text-dark" href="{{ route('dasboard') }}"
                         {{ request()->route()->getName() == 'dasboard'? 'active': '' }}>Dashboard</a>
                             @endif
+                        <a class="dropdown-item text-dark" href="{{ route('profile') }}"
+                            {{ request()->route()->getName() == 'profile'? 'active': '' }}>Trang cá nhân</a>
+                            
                     </div>
                     <a class="nav-link text-light" href="{{ route('dang-xuat') }}"
                         {{ request()->route()->getName() == 'dang-xuat'? 'active': '' }}>

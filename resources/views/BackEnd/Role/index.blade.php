@@ -14,19 +14,19 @@
             <button type="button" class="close" data-dismiss="alert">×</button>
             {{Session::get('success')}}
         </div>
-    @elseif(Session::has('failed'))
+        @elseif(Session::has('failed'))
         <div class="alert alert-success alert-dismissible">
             <button type="button" class="close" data-dismiss="alert">×</button>
             {{Session::get('failed')}}
         </div>
-    @endif
-          <table class="table table-responsive table-full-width" >
+        @endif
+          <table class="table table-responsive table-full-width text-center" >
             @csrf
               <thead>
                   <tr>
-                      <th class="text-center">STT</th>
-                      <th class="text-center">Role </th>
-                      <th class="text-center">Acction</th>
+                      <th >STT</th>
+                      <th >Role </th>
+                      <th >Acction</th>
                   </tr>
               </thead>
               <tbody>

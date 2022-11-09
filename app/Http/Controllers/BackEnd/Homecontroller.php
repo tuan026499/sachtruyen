@@ -19,14 +19,14 @@ class Homecontroller extends Controller
         if(Auth::check()){
             if($role =Auth::user()->role){
                 if($role==1){
-                    $theloai = Theloai::where('id','DESC')->get();
+                    // $theloai = Theloai::where('id','DESC')->get();
                     $danhmuc  = Danhmuc::where('id','DESC')->get();
                     $category = Category::where('id','DESC')->get();
-                    // $role = Role::where('id','DESC')->get();
-                    $truyen = Truyen::where('id','DESC')->get();
-                    $user = User::where('id','DESC')->get();
-                    // return view('BackEnd.index',['danhmuc'=>$danhmuc,'theloai'=>$theloai,'']);
-                    return view('BackEnd.index',compact('danhmuc','theloai','category','truyen','user'));
+                    $truyen = Truyen::all();
+                    $user = User::all();
+                    $countUser = $user->count();
+                    $countTruyen = $truyen->count();
+                    return view('BackEnd.index',compact('danhmuc','category','truyen','user','countUser','countTruyen'));
                 } 
                 else{
                     return abort(404);
